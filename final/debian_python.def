@@ -1,0 +1,6 @@
+Bootstrap: docker
+From: debian:bookworm-slim
+
+%post
+    apt-get update -qq
+    apt-get python3

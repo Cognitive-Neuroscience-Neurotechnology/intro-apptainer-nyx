@@ -1,0 +1,16 @@
+Bootstrap: docker
+From: ubuntu:22.04
+
+%post
+    export DEBIAN_FRONTEND=noninteractive
+    apt-get update -qq
+    apt-get install -y -q --no-install-recommends \
+        python3 \
+        wget \
+        ca-certificates
+
+    wget https://fsl.fmrib.ox.ac.uk/fsldownloads/fslconda/releases/fslinstaller.py -P /opt
+    python3 /opt/fslinstaller.py -d /opt/fsl -V 6.0.7 -q
+
+    rm -rf /opt/fslinstaller.py    
+
