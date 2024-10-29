@@ -38,16 +38,29 @@ singularity shell alpine.sif docker://alpine
 apptainer build --fakeroot minimal.sif minimal.def
 
 # 3.2 Building a container and installing some linux packages
-./build debian_python.sif debian_python.def
+# 1. python3
+apptainer build --fakeroot minimal.sif minimal.def
+# (possible bindpath related error, swith to build script:)
+./build.sh debian_python.sif debian_python.def
 
 # discuss additional sections in the definition file (environment, runscript, etc.)
 # see https://apptainer.org/docs/user/main/definition_files.html
 
+# 2. add file
+# 3. add environment variable
+# 4. add runscript
+
+
+
 # 3.3 Approaches to installing more complex software
 # example fsl
-# example freesurfer
+# - go to the fsl website, read installation instructions and draft a definition file
+# - probem: fsl tries to download from anaconda channel, which is blocked in the MPG
 
-# gfae templates
+# example freesurfer
+# - go to the freesurfer website, read installation instructions and draft a definition file
+
+# also consolt templates in gfae submodule
 
 
 # 3.4 Neurodocker 
