@@ -1,0 +1,17 @@
+Bootstrap: docker
+From: debian:bookworm-slim 
+
+%environment
+    export MESSAGE="Hello, world!!!1111!1!!1111!"
+
+
+%files
+    hello.py /opt/hello.py 
+
+
+%post
+    apt-get update -y
+    apt-get install -y python3
+
+%runscript
+    python3 /opt/hello.py $MESSAGE

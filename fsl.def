@@ -1,0 +1,11 @@
+Bootstrap: docker
+From: ubuntu:22.04
+
+%post
+    apt-get update -y
+    apt-get install -y \
+        python3 \
+        wget \
+        ca-certificates 
+
+    wget https://fsl.fmrib.ox.ac.uk/fsldownloads/fslconda/releases/fslinstaller.py
